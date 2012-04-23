@@ -1,4 +1,4 @@
 WRT-SPAN
 ========
 
-OpenWRT SPAN (port-mirroring) Project
+OpenWRT Switch Port Analyzer (SPAN) Project
