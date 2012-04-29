@@ -1,0 +1,6 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+nice -n 20 /usr/bin/daemonlogger -i br-bridgetap -o eth1 -d
+
+exit 0

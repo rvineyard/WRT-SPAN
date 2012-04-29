@@ -1,0 +1,62 @@
+#### VLAN configuration
+config switch eth0
+        option enable 1
+        option reset 1
+        option enable_vlan 1
+
+#config switch_vlan eth0_0
+#        option device   "eth0"
+#        option vlan     0
+#        option ports    "0 1 2 3 5"
+
+# switch port 0 (Tap A)
+config switch_vlan eth0_1
+        option device   "eth0"
+        option vlan     1
+        option ports    "0 5t"
+
+# switch port 1 (Tap B)
+config switch_vlan eth0_2
+        option device   "eth0"
+        option vlan     2
+        option ports    "1 5t"
+
+# switch port 2 (Tap C)
+config switch_vlan eth0_3
+        option device   "eth0"
+        option vlan     3
+        option ports    "2 5t"
+
+# switch port 3 (Management)
+config switch_vlan eth0_4
+        option device   "eth0"
+        option vlan     4
+        option ports    "3 5t"
+
+#### Loopback configuration
+config interface loopback
+        option ifname   "lo"
+        option proto    static
+        option ipaddr   127.0.0.1
+        option netmask  255.0.0.0
+
+#### Bridge Tap configuration
+config interface bridgetap
+        option type     bridge
+        option ifname   "eth0.1 eth0.2 eth0.3"
+        option proto    none
+        option auto     1
+
+#### Management Port configuration
+config interface management
+        option ifname   "eth0.4"
+        option proto    static
+        option ipaddr   192.168.2.2
+        option netmask  255.255.255.0
+        option auto     1
+
+#### SPAN configuration
+config interface SPAN
+        option ifname   "eth1"
+        option proto    none
+        option auto     1
