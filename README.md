@@ -1,18 +1,24 @@
-WRT-SPAN
-========
-
-OpenWRT Switch Port Analyzer (SPAN) Project
+<h2>WRT-SPAN: OpenWRT Switch Port Analyzer (SPAN)</h2>
+<h3>Project High Life: The champagne of cheap routers</h3>
 
 http://vinsec.blogspot.com
 
-I've got a friend helping me turn this into something a bit more legible (and preferably in SVG format so I can revise it if necessary), but here is a rough draft of what's going on inside my makeshift aggregating ethernet tap:<br />
-<br />
+Here's a block diagram of what's going on inside my makeshift aggregating ethernet tap:<br />
+
 <div class="separator" style="clear: both; text-align: center;">
-<a href="http://2.bp.blogspot.com/-TcDXwOw56Zo/T6wMje3iiyI/AAAAAAAAAEU/vZJ2iNpUStA/s1600/kenny-draft1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img alt="" border="0" height="320" src="http://2.bp.blogspot.com/-TcDXwOw56Zo/T6wMje3iiyI/AAAAAAAAAEU/vZJ2iNpUStA/s400/kenny-draft1.png" title="" width="400" /></a></div>
+  <a href="http://4.bp.blogspot.com/-M2VNQ9loqn8/T61oGYhsbMI/AAAAAAAAAE0/VcdiLoEO-vM/s1600/Kenny-inkscape.png"
+    imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
+    <img alt="kenny" title="kenny" width="400" border="0"
+      src="http://4.bp.blogspot.com/-M2VNQ9loqn8/T61oGYhsbMI/AAAAAAAAAE0/VcdiLoEO-vM/s1600/Kenny-inkscape.png"/>
+  </a>
+</div>
 <br />
 Everything on my network is named after a character from South Park, and Kenny seemed like an appropriate name for this little fella because he died many, many horrible deaths along the way to getting this right.
 
-I'm hoping to have the full writeup completed today or tomorrow, with pretty diagrams to follow shortly.
+I'm hoping to have the full writeup completed today or tomorrow, with more pretty diagrams to follow shortly, thanks to my buddy Sean Brennan. He put this one together for me after a lot of squinting really hard at my chicken scratch originals.
+
+Graphic design is not my forte ;-)
+
 <br />
 <h2>Ethernet and Bridge Configuration</h2>
 <pre>
