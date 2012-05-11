@@ -16,6 +16,15 @@ I'm hoping to have the full writeup completed today or tomorrow, with pretty dia
 <br />
 <h2>Ethernet and Bridge Configuration</h2>
 <pre>
+
+root@kenny:~# dmesg | grep Ethernet
+ssb: Core 1 found: Fast Ethernet (cc 0x806, rev 0x06, vendor 0x4243)
+ssb: Core 2 found: Fast Ethernet (cc 0x806, rev 0x06, vendor 0x4243)
+eth0: Broadcom 44xx/47xx 10/100BaseT Ethernet 00:1d:7e:43:e1:66
+eth1: Broadcom 44xx/47xx 10/100BaseT Ethernet 00:88:88:88:00:2a
+
+
+
 root@kenny:~# ifconfig
 br-bridge Link encap:Ethernet  HWaddr 00:1D:7E:43:E1:66
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
@@ -77,9 +86,12 @@ lo        Link encap:Local Loopback
           collisions:0 txqueuelen:0
           RX bytes:91 (91.0 B)  TX bytes:91 (91.0 B)
 
+
+
 root@kenny:~# brctl show
 bridge name     bridge id               STP enabled     interfaces
-br-bridgetap            8000.001d7e43e166       no              eth0.1
+br-bridgetap    8000.001d7e43e166       no              eth0.1
                                                         eth0.2
                                                         eth0.3
+                                                        
 </pre>
