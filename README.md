@@ -1,5 +1,5 @@
 <h2>WRT-SPAN: OpenWRT Switch Port Analyzer (SPAN)</h2>
-<h3>Project High Life: The champagne of cheap routers</h3>
+<h3>aka Project High Life: The champagne of cheap routers</h3>
 
 http://vinsec.blogspot.com
 
@@ -15,7 +15,7 @@ Here's a block diagram of what's going on inside my makeshift aggregating ethern
 <br />
 Everything on my network is named after a character from South Park, and Kenny seemed like an appropriate name for this little fella because he died many, many horrible deaths along the way to getting this right.
 
-I'm hoping to have the full writeup completed today or tomorrow, with more pretty diagrams to follow shortly, thanks to my buddy Sean Brennan. He put this one together for me after a lot of squinting really hard at my chicken scratch originals.
+I'm hoping to have the full writeup completed today or tomorrow, with more pretty diagrams to follow shortly, thanks to my buddy Sean Brennan. He put this one together for me after a lot of squinting really hard at my chicken scratch hand-drawn originals.
 
 Graphic design is not my forte ;-)
 
