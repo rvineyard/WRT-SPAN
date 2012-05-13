@@ -23,11 +23,12 @@ Graphic design is not my forte ;-)
 <h2>Ethernet and Bridge Configuration</h2>
 <pre>
 
-root@kenny:~# dmesg | grep Ethernet
+root@kenny:~# dmesg | egrep 'Ethernet|switch'
 ssb: Core 1 found: Fast Ethernet (cc 0x806, rev 0x06, vendor 0x4243)
 ssb: Core 2 found: Fast Ethernet (cc 0x806, rev 0x06, vendor 0x4243)
 eth0: Broadcom 44xx/47xx 10/100BaseT Ethernet 00:1d:7e:43:e1:66
 eth1: Broadcom 44xx/47xx 10/100BaseT Ethernet 00:88:88:88:00:2a
+roboswitch: Probing device eth0: found a 5325! It's a 5350.
 
 
 
