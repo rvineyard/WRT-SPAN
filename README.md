@@ -3,7 +3,9 @@
 
 http://vinsec.blogspot.com
 
-Here's a block diagram of what's going on inside my makeshift aggregating ethernet tap:<br />
+This project provides software and configuration templates for building a network-managed multi-port filtering/aggregating full-frame Ethernet Switch Port ANalyzer (SPAN) device using <a href="http://openwrt.org">OpenWRT</a> and <a href="http://www.snort.org/snort-downloads/additional-downloadaemonlogger">Daemonlogger</a>.
+
+Here's a block diagram of what's going on inside my makeshift tap:<br />
 
 <div class="separator" style="clear: both; text-align: center;">
   <a href="http://4.bp.blogspot.com/-M2VNQ9loqn8/T61oGYhsbMI/AAAAAAAAAE0/VcdiLoEO-vM/s1600/Kenny-inkscape.png"
@@ -12,14 +14,8 @@ Here's a block diagram of what's going on inside my makeshift aggregating ethern
       src="http://4.bp.blogspot.com/-M2VNQ9loqn8/T61oGYhsbMI/AAAAAAAAAE0/VcdiLoEO-vM/s1600/Kenny-inkscape.png"/>
   </a>
 </div>
-<br />
 Everything on my network is named after a character from South Park, and Kenny seemed like an appropriate name for this little fella because he died many, many horrible deaths along the way to getting this right.
 
-I'm hoping to have the full writeup completed today or tomorrow, with more pretty diagrams to follow shortly, thanks to my buddy Sean Brennan. He put this one together for me after a lot of squinting really hard at my chicken scratch hand-drawn originals.
-
-Graphic design is not my forte ;-)
-
-<br />
 <h2>Ethernet and Bridge Configuration</h2>
 <pre>
 
