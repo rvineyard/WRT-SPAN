@@ -1,0 +1,169 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>WRT-SPAN</title>
+  <meta name="description" content="WRT-SPAN: OpenWRT Switch Port ANalyzer (SPAN)">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">WRT-SPAN</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">WRT-SPAN: OpenWRT Switch Port ANalyzer (SPAN)</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/vineyard/WRT-SPAN/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/vineyard/WRT-SPAN/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/vineyard/WRT-SPAN" class="code">View WRT-SPAN on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h2>WRT-SPAN: OpenWRT Switch Port Analyzer (SPAN)</h2>
+
+<h3>aka Project High Life: The champagne of cheap routers</h3>
+
+<p><a href="http://vinsec.blogspot.com">http://vinsec.blogspot.com</a></p>
+
+<p>This project provides software and configuration templates for building a network-managed multi-port filtering/aggregating full-frame Ethernet Switch Port ANalyzer (SPAN) device using <a href="http://openwrt.org">OpenWRT</a> and <a href="http://www.snort.org/snort-downloads/additional-downloadaemonlogger">Daemonlogger</a>.</p>
+
+<p>Here's a block diagram of what's going on inside my makeshift tap:<br></p>
+
+ 
+  <a href="http://4.bp.blogspot.com/-M2VNQ9loqn8/T61oGYhsbMI/AAAAAAAAAE0/VcdiLoEO-vM/s1600/Kenny-inkscape.png">
+    <img alt="kenny" title="kenny" width="400" border="0" src="http://4.bp.blogspot.com/-M2VNQ9loqn8/T61oGYhsbMI/AAAAAAAAAE0/VcdiLoEO-vM/s1600/Kenny-inkscape.png"></a>
+ 
+
+<p>Everything on my network is named after a character from South Park, and Kenny seemed like an appropriate name for this little fella because he died many, many horrible deaths along the way to getting this right.</p>
+
+<h2>Ethernet and Bridge Configuration</h2>
+
+<pre>
+
+root@kenny:~# dmesg | egrep 'Ethernet|switch'
+ssb: Core 1 found: Fast Ethernet (cc 0x806, rev 0x06, vendor 0x4243)
+ssb: Core 2 found: Fast Ethernet (cc 0x806, rev 0x06, vendor 0x4243)
+eth0: Broadcom 44xx/47xx 10/100BaseT Ethernet 00:1d:7e:43:e1:66
+eth1: Broadcom 44xx/47xx 10/100BaseT Ethernet 00:88:88:88:00:2a
+roboswitch: Probing device eth0: found a 5325! It's a 5350.
+
+
+
+root@kenny:~# ifconfig
+br-bridge Link encap:Ethernet  HWaddr 00:1D:7E:43:E1:66
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:75498956 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:1537411031 (1.4 GiB)  TX bytes:0 (0.0 B)
+
+eth0      Link encap:Ethernet  HWaddr 00:1D:7E:43:E1:66
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:75525684 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:84951464 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:3219450758 (2.9 GiB)  TX bytes:3884550799 (3.6 GiB)
+          Interrupt:4
+
+eth0.1    Link encap:Ethernet  HWaddr 00:1D:7E:43:E1:66
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:53110718 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:22388245 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:2504502284 (2.3 GiB)  TX bytes:3943308308 (3.6 GiB)
+
+eth0.2    Link encap:Ethernet  HWaddr 00:1D:7E:43:E1:66
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:22388245 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:53110714 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:3629872878 (3.3 GiB)  TX bytes:3248052080 (3.0 GiB)
+
+eth0.3    Link encap:Ethernet  HWaddr 00:1D:7E:43:E1:66
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:9407187 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 B)  TX bytes:625278740 (596.3 MiB)
+
+eth0.4    Link encap:Ethernet  HWaddr 00:1D:7E:43:E1:66
+          inet addr:192.168.2.2  Bcast:192.168.2.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:6794 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:8698 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:505751 (493.8 KiB)  TX bytes:2418973 (2.3 MiB)
+
+eth1      Link encap:Ethernet  HWaddr 00:88:88:88:00:2A
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:95697991 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:64587510 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:1880088266 (1.7 GiB)  TX bytes:3105379375 (2.8 GiB)
+          Interrupt:5
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:1 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:91 (91.0 B)  TX bytes:91 (91.0 B)
+
+
+
+root@kenny:~# brctl show
+bridge name     bridge id               STP enabled     interfaces
+br-bridgetap    8000.001d7e43e166       no              eth0.1
+                                                        eth0.2
+                                                        eth0.3
+                                                        
+</pre>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/vineyard" class="avatar"><img src="https://secure.gravatar.com/avatar/a0eb7a1eff0975475d2a034d28ea98a8?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png" width="48" height="48"/></a> <a href="https://github.com/vineyard">vineyard</a> maintains <a href="https://github.com/vineyard/WRT-SPAN">WRT-SPAN</a></p>
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="http://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/vineyard/WRT-SPAN/tarball/master" class="tar">tar</a><a href="https://github.com/vineyard/WRT-SPAN/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-32148575-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+</body>
+</html>
