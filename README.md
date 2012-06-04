@@ -97,14 +97,4 @@ br-bridgetap    8000.001d7e43e166       no              eth0.1
                                                         eth0.3
                                                         
 </pre>
-<p><a href="http://www.linkedin.com/in/rvineyard" class="avatar"><img src="http://media.linkedin.com/mpr/pub/image-ID7SCy7GGx48l5uSzIqNIosNws-7zD3l-e-TGet-wDsA-G6sID7T-IOGwaoAGHO1bugI/robert-vineyard.jpg" width="48" height="48"/></a> <a href="http://www.linkedin.com/in/rvineyard">Robert Vineyard</a> maintains <a href="https://github.com/vineyard/WRT-SPAN">WRT-SPAN</a> and <a href="http://vinsec.blogspot.com" target=_>vinsec.blogspot.com</a></p>
-<script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-    try {
-      var pageTracker = _gat._getTracker("UA-32148575-1");
-      pageTracker._trackPageview();
-    } catch(err) {}
-</script>
+<p><a href="http://www.linkedin.com/in/rvineyard" class="avatar"><img src="http://media.linkedin.com/mpr/pub/image-ID7SCy7GGx48l5uSzIqNIosNws-7zD3l-e-TGet-wDsA-G6sID7T-IOGwaoAGHO1bugI/robert-vineyard.jpg" width="48" height="48" align="center"/></a> <a href="http://www.linkedin.com/in/rvineyard">Robert Vineyard</a> maintains <a href="https://github.com/vineyard/WRT-SPAN">WRT-SPAN</a> and <a href="http://vinsec.blogspot.com" target=_>vinsec.blogspot.com</a></p>
