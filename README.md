@@ -1,22 +1,21 @@
 <h2>WRT-SPAN: OpenWRT Switch Port Analyzer (SPAN)</h2>
-<h3>aka Project High Life: The champagne of cheap routers</h3>
 
-http://vinsec.blogspot.com
+<h3>Project High Life: The champagne of cheap routers</h3>
 
-This project provides software and configuration templates for building a network-managed multi-port filtering/aggregating full-frame Ethernet Switch Port ANalyzer (SPAN) device using <a href="http://openwrt.org">OpenWRT</a> and <a href="http://www.snort.org/snort-downloads/additional-downloadaemonlogger">Daemonlogger</a>.
+<p>This project provides software and configuration templates for building a network-managed multi-port filtering/aggregating full-frame Ethernet Switch Port Analyzer (SPAN) device using <a href="http://openwrt.org">OpenWRT</a> and <a href="http://www.snort.org/snort-downloads/additional-downloads#daemonlogger">Daemonlogger</a>.</p>
 
-Here's a block diagram of what's going on inside my makeshift tap:<br />
+<b><i><span style="color: #f6b26b;">NOTE: THIS <u>WILL NOT WORK</u> ON THE WRT54G OR SIMILAR PLATFORMS EQUIPPED WITH ONLY A SINGLE PHYSICAL WIRED NETWORK INTERFACE TO THE CPU!!! YOU <u>WILL</u> CREATE SWITCHING LOOPS AND <u>TAKE DOWN YOUR ENTIRE NETWORK</u> ALL AT ONCE. YOU HAVE BEEN WARNED. I WILL NOT BE HELD RESPONSIBLE IF PROJECT HIGH LIFE / WRT-SPAN MELTS YOUR COMPUTER, EATS YOUR BABIES, BURNS YOUR HOUSE DOWN, OR KICKS YOUR PUPPY.</span></i></b><br /><br />
 
-<div class="separator" style="clear: both; text-align: center;">
-  <a href="http://4.bp.blogspot.com/-M2VNQ9loqn8/T61oGYhsbMI/AAAAAAAAAE0/VcdiLoEO-vM/s1600/Kenny-inkscape.png"
-    imageanchor="1" style="margin-left: 1em; margin-right: 1em;">
-    <img alt="kenny" title="kenny" width="400" border="0"
-      src="http://4.bp.blogspot.com/-M2VNQ9loqn8/T61oGYhsbMI/AAAAAAAAAE0/VcdiLoEO-vM/s1600/Kenny-inkscape.png"/>
-  </a>
-</div>
-Everything on my network is named after a character from South Park, and Kenny seemed like an appropriate name for this little fella because he died many, many horrible deaths along the way to getting this right.
+<p>Here's a block diagram of what's going on inside <a href="http://vinsec.blogspot.com/2012/05/meet-kenny.html" target=_>Kenny</a>, my makeshift tap, built on a $40 <a href="http://homesupport.cisco.com/en-us/support/routers/WRT150N" target=_>Linksys WRT150N</a> wireless router:</p>
+ 
+  <a href="http://1.bp.blogspot.com/-qPONw_X17CU/T8ujgeAy3kI/AAAAAAAAAH4/0jVIZ_o0ujk/s1600/Kenny-inkscape.png">
+    <img alt="kenny" title="kenny" border="0" src="http://1.bp.blogspot.com/-qPONw_X17CU/T8ujgeAy3kI/AAAAAAAAAH4/0jVIZ_o0ujk/s800/Kenny-inkscape.png"></a>
+ 
+
+<p>Everything on my network is named after a character from South Park, and Kenny seemed like an appropriate name for this little fella because he died many, many horrible deaths along the way to getting this right.</p>
 
 <h2>Ethernet and Bridge Configuration</h2>
+
 <pre>
 
 root@kenny:~# dmesg | egrep 'Ethernet|switch'
@@ -98,3 +97,14 @@ br-bridgetap    8000.001d7e43e166       no              eth0.1
                                                         eth0.3
                                                         
 </pre>
+<p><a href="http://www.linkedin.com/in/rvineyard" class="avatar"><img src="http://media.linkedin.com/mpr/pub/image-ID7SCy7GGx48l5uSzIqNIosNws-7zD3l-e-TGet-wDsA-G6sID7T-IOGwaoAGHO1bugI/robert-vineyard.jpg" width="48" height="48"/></a> <a href="http://www.linkedin.com/in/rvineyard">Robert Vineyard</a> maintains <a href="https://github.com/vineyard/WRT-SPAN">WRT-SPAN</a> and <a href="http://vinsec.blogspot.com" target=_>vinsec.blogspot.com</a></p>
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try {
+      var pageTracker = _gat._getTracker("UA-32148575-1");
+      pageTracker._trackPageview();
+    } catch(err) {}
+</script>
